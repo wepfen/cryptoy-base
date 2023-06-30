@@ -28,6 +28,10 @@ Vous pouvez lancer tous les tests via la commande `python -m pytest`.
 
 Ou bien lancer un seul test via la commande `python -m pytest -k [nom_du_test]`
 
+Ajoutez l'argument `-s` pour que vos `print()` s'affiche en console.
+
+Vous pouvez lancer un script python en interactif pour executer manuellement les fonctions de ce script, par exemple: `python -im cryptoy.caesar_cipher`.
+
 ## Modalité de rendu
 
 Le rendu se fera via la méthode des merge requests détaillée dans [le README du repository Arithmatoy](https://gitlab.com/maths-2600/arithmatoy-base).
