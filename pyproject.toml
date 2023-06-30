@@ -8,6 +8,8 @@ packages = [{include = "cryptoy", from="src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+names = "^0.3.0"
+cryptography = "^41.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -55,7 +57,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-addopts = "--html=.local/test_report/report.html --cov --cov-config pyproject.toml --cov-report term --cov-report html --cov-report xml --junitxml .local/test_report/test_report.xml --typeguard-packages=cryptoy"
+addopts = "--cov --cov-config pyproject.toml --cov-report term --cov-report html --cov-report xml --junitxml .local/test_report/test_report.xml --typeguard-packages=cryptoy"
 junit_family = "xunit2"
 cache_dir = ".local/pytest_cache"
 asyncio_mode = "strict"
