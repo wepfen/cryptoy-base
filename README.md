@@ -34,4 +34,4 @@ Vous pouvez lancer un script python en interactif pour executer manuellement les
 
 ## Modalité de rendu
 
-Le rendu se fera via la méthode des merge requests détaillée dans [le README du repository Arithmatoy](https://gitlab.com/maths-2600/arithmatoy-base).
+Le rendu se fera via spreadsheet partagée en cours.
