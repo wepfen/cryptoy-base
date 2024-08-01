@@ -68,7 +68,7 @@ def test_affine_cipher() -> None:
     assert (
         affine_cipher.decrypt(affine_cipher.encrypt(msg, key, 4321), key, 4321) == msg
     )
-
+    
     tp_key = 1114111
     assert (
         hashlib.sha256(
