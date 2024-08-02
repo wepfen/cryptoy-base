@@ -171,11 +171,11 @@ def test_passwords_fix() -> None:
         assert "password_hash" in password_hash_and_salt
         assert "password_salt" in password_hash_and_salt
         assert user in passwords_database
-
+    
     assert passwords.authenticate("James Barrows", "94220254", new_database) is True
     assert passwords.authenticate("Blanca Kimmel", "crazydave6", new_database) is True
     assert passwords.authenticate("Cindy Zink", "loveyou77", new_database) is False
-
+    
 
 def test_aes() -> None:
     msg = b'\xd0\x8d)%\x18QnD\xf9\x9c\xc7(\x1a\x85\xc3t\xf3\xc4\x92"\x1ahB\xf9\xfb\xa1\xc1]\xee\xf0\xda\xbcd\x9d: ?\xb8\xe1\xb4{\x87\n2'

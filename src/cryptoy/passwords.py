@@ -57,6 +57,13 @@ def fix(
     # }
     # tel que H = hash_password(S + password)
 
+    for user, password in users_and_passwords.items():
+        salt = random_salt()
+        password_hash = hash_password(salt + password)
+        new_database[user] = {
+            "password_hash": password_hash,
+            "password_salt": salt,
+        }
     return new_database
 
 
@@ -64,4 +71,5 @@ def authenticate(
     user: str, password: str, new_database: dict[str, dict[str, str]]
 ) -> bool:
     # Doit renvoyer True si l'utilisateur a envoyé le bon password, False sinon
-    pass
+
+    return (hash_password(new_database[user]["password_salt"] + password) == new_database[user]["password_hash"])
