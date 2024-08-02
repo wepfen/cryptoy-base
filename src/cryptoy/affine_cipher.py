@@ -93,11 +93,11 @@ def attack() -> tuple[str, tuple[int, int]]:
         
 
         try:
-            decrypted = decrypt(s, key, b)
+            decrypted = decrypt(s, keys[key], b)
             if "bombe" in decrypted:
                 print(f"key recovered : {key}")
                 print(f"message recovered : {decrypted}")
-                return (decrypted, (key,b))
+                return (decrypted, (keys[key],b))
         except:
             pass
         
@@ -112,6 +112,16 @@ def attack_optimized() -> tuple[str, tuple[int, int]]:
         "જഏ൮ൈ\u0c51ܲ೩\u0c51൛൛అ౷\u0c51ܲഢൈᘝఫᘝా\u0c51\u0cfc൮ܲఅܲᘝ൮ᘝܲాᘝఫಊಝ"
         "\u0c64\u0c64ൈᘝࠖܲೖఅܲఘഏ೩ఘ\u0c51ܲ\u0c51൛൮ܲఅ\u0cfc\u0cfcඁೖᘝ\u0c51"
     )
+
+    keys = compute_affine_keys(0x110000)
+
+    for a in keys:
+        a_inverse = compute_affine_key_inverse(a, keys, 0x110000)
+        for b in range(1, 10000):
+            decrypted = decrypt_optimized(s, a_inverse, b)
+            if "bombe" in decrypted:
+                return (decrypted, (a,b))
+        
     # trouver msg, a et b tel que affine_cipher_encrypt(msg, a, b) == s
     # avec comme info: "bombe" in msg
 
