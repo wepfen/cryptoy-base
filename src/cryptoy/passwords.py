@@ -29,7 +29,12 @@ def generate_users_and_password_hashes(
 
 def attack(passwords: list[str], passwords_database: dict[str, str]) -> dict[str, str]:
     users_and_passwords = {}
-
+    
+    for password in passwords:
+        hashed_password = hash_password(password)
+        if hashed_password in passwords_database.values():
+            user = list(passwords_database.keys())[list(passwords_database.values()).index(hashed_password)]
+            users_and_passwords[user] = password
     # A implémenter
     # Doit calculer le mots de passe de chaque utilisateur grace à une attaque par dictionnaire
 
